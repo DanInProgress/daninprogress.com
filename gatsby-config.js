@@ -8,7 +8,7 @@ module.exports = {
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
     siteTitle: `Dan In Progress`,
-    siteTitleAlt: `Improving when I can`,
+    siteTitleAlt: `Improving as I go`,
     siteHeadline: `Dan In Progress`,
     siteUrl: `https://daninprogress.com`,
     siteDescription: `D`,
@@ -123,6 +123,7 @@ module.exports = {
               }
             `,
             output: `rss.xml`,
+            title: "Dan In Progress - Improving as I go"
           },
         ],
       },

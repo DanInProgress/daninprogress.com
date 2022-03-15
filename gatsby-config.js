@@ -4,81 +4,53 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    // You can overwrite values here that are used for the SEO component
-    // You can also add new values here to query them like usual
-    // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
-    siteTitle: `Dan In Progress`,
-    siteTitleAlt: `Improving as I go`,
-    siteHeadline: `Dan In Progress`,
+    title: `Dan In Progress`,
+    author: {
+      name: `@DanInProgress`,
+      summary: `Improving as I go`,
+    },
+    description: `Dan In Progress - Improving as I go.`,
     siteUrl: `https://daninprogress.com`,
-    siteDescription: `D`,
-    siteLanguage: `en`,
-    siteImage: `/banner.jpg`,
-    author: `@daninprogress`,
+    social: {
+      github: `daninprogress`
+    }
   },
   plugins: [
-    {
-      resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      // See the theme's README for all available options
-      options: {
-        navigation: [
-          {
-            title: `Blog`,
-            slug: `/blog`,  
-          },
-          {
-            title: `About`,
-            slug: `/about`,
-          },
-        ],
-        externalLinks: [
-        ],
-      },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${__dirname}/content/blog`,
+      name: `blog`,
     },
-    {
-      resolve: `gatsby-omni-font-loader`,
-      options: {
-        enableListener: true,
-        preconnect: [`https://fonts.gstatic.com`],
-        interval: 300,
-        timeout: 30000,
-        // If you plan on changing the font you'll also need to adjust the Theme UI config to edit the CSS
-        // See: https://github.com/LekoArts/gatsby-themes/tree/main/examples/minimal-blog#changing-your-fonts
-        web: [
-          {
-            name: `IBM Plex Sans`,
-            file: `https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap`,
-          },
-        ],
-      },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `images`,
+      path: `${__dirname}/src/images`,
     },
-    `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Dan In Progress - Improving as I go`,
-        short_name: `Dan In Progress`,
-        description: `Improving as I go.`,
-        start_url: `/`,
-        background_color: `#fff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        theme_color: `#23a9e1`,
-        display: `standalone`,
-        icons: [
-          {
-            src: `/android-chrome-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`,
+  },
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: `gatsby-remark-images`,
+          options: {
+            maxWidth: 630,
           },
-          {
-            src: `/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-          },
-        ],
-      },
+        },
+        `gatsby-remark-prismjs`,
+        `gatsby-remark-copy-linked-files`,
+        `gatsby-remark-smartypants`,
+      ],
     },
+  },
+  `gatsby-transformer-sharp`,
+  `gatsby-plugin-sharp`,
+  `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -127,15 +99,6 @@ module.exports = {
           },
         ],
       },
-    },
-    `gatsby-plugin-gatsby-cloud`,
-    shouldAnalyseBundle && {
-      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
-      options: {
-        analyzerMode: `static`,
-        reportFilename: `_bundle.html`,
-        openAnalyzer: false,
-      },
-    },
-  ].filter(Boolean),
+    }
+  ]   ,
 }

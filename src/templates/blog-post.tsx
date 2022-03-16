@@ -1,13 +1,43 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
+import "../normalize.css"
+import "../style.css"
+
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({ data, location }) => {
+import { BaseMarkdownRemark } from "../graphql/remark"
+
+import { Url } from "url"
+import { SiteMetadata } from "../graphql/site"
+import BlogPost from "../components/blog-post"
+
+type AdjacentPostSlugs = BaseMarkdownRemark &{
+  frontmatter: {
+    title: any
+  }
+  fields: {
+    slug : any
+  }
+}
+
+type BlogPostData = {
+  markdownRemark: BaseMarkdownRemark & {
+    frontmatter: {
+      title: any
+      description: any
+      date: any
+    }
+  }
+  site: SiteMetadata
+  previous: AdjacentPostSlugs
+  next: AdjacentPostSlugs
+}
+
+const BlogPostTemplate = ({ data, location }:{data: BlogPostData, location: Url}) => {
   const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata.title || `Title`
   const { previous, next } = data
 
   return (
@@ -16,24 +46,11 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
+      <BlogPost 
+        title={post.frontmatter.title}
+        date={post.frontmatter.date}
+        html={post.html}
+      />
       <nav className="blog-post-nav">
         <ul
           style={{

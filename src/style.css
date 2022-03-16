@@ -1,2 +1,66 @@
 /* CSS Custom Properties Definitions */
+/* basic formatting */
+h1,h2,h3,h4,h5,h6 {
+    line-height: 1.3;
+    font-weight: 400;
+    color: #292929;
+}
 
+pre.language-text {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: rgb(246, 248, 250);
+    border-radius: 6px;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 48.75rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.site-title a {
+    color: #060606;
+    color: rgb(6 6 6);
+    text-decoration: none;
+}
+
+/* main page grid */
+#layout-wrapper {
+    display: grid;
+    grid-template-rows: auto minmax(0,1fr) auto;
+    grid-template-columns: 1fr fit-content(10in) 1fr;
+    grid-template-areas:
+        ". header. "
+        ". main ."
+        ". footer . ";
+    min-height: 100vh;
+}
+
+#layout-wrapper > header {
+    grid-area: header;
+}
+
+#layout-wrapper > main {
+    grid-area: main;
+    max-width: 10in;
+}
+
+#layout-wrapper > footer {
+    grid-area: footer;
+}
+
+header, footer {
+    /* width: 100%; */
+    justify-self: start;
+    align-self: end;
+}

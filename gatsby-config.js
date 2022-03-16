@@ -42,6 +42,7 @@ module.exports = {
             maxWidth: 630,
           },
         },
+        `gatsby-remark-mermaid`,
         `gatsby-remark-prismjs`,
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-smartypants`,
@@ -58,8 +59,8 @@ module.exports = {
           {
             site {
               siteMetadata {
-                title: siteTitle
-                description: siteDescription
+                title: title
+                description
                 siteUrl
                 site_url: siteUrl
               }
@@ -68,14 +69,15 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allPost } }) =>
-              allPost.nodes.map((post) => {
-                const url = site.siteMetadata.siteUrl + post.slug
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+            allMarkdownRemark.nodes.map((post) => {
+                console.log(post)
+                const url = site.siteMetadata.siteUrl + post.fields.slug
                 const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">Keep reading</a>.</strong></div><br /> <br />`
 
                 return {
-                  title: post.title,
-                  date: post.date,
+                  title: post.frontmatter.title,
+                  date: post.frontmatter.date,
                   excerpt: post.excerpt,
                   url,
                   guid: url,
@@ -84,12 +86,16 @@ module.exports = {
               }),
             query: `
               {
-                allPost(sort: { fields: date, order: DESC }) {
+                allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
                   nodes {
-                    title
-                    date(formatString: "MMMM D, YYYY")
+                    frontmatter {
+                      title
+                      date(formatString: "MMMM D, YYYY")
+                    }
                     excerpt
-                    slug
+                    fields {
+                      slug
+                    }
                   }
                 }
               }

@@ -17,7 +17,7 @@ const BlogPost = (props:BlogPostProp) => (
 )
 
 
-const Excerpt = ({title, excerptHtml, slug}:BlogPostProp) => (
+const Excerpt = ({title, date, excerptHtml, slug}:BlogPostProp) => (
     <article
         className="post-list-item"
         itemScope
@@ -28,18 +28,19 @@ const Excerpt = ({title, excerptHtml, slug}:BlogPostProp) => (
           <span itemProp="headline">{title}</span>
         </Link>
     </h2>
-    <span className="article-text"
+    <span className="publication-date">{date}</span>
+    <p className="article-text"
       dangerouslySetInnerHTML={{
         __html: excerptHtml || "",
       }}
       itemProp="description"
     />
+    <Link to={slug||"#"} className="read-more" >Read Article</Link>
   </article>
 )
 
 const Post = ({title, slug, html}:BlogPostProp) => (
     <article
-    className="post-list-item"
     itemScope
     itemType="http://schema.org/Article"
     >

@@ -1,4 +1,5 @@
 ---
+published: true
 title: Javascript Semicolons are Bad, Actually
 date: 2022-03-06
 description: I’ve been lured into the no-semicolon club. I didn’t expect to be convinced, but I had missed a truly compelling argument.

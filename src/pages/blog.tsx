@@ -31,7 +31,7 @@ const BlogIndex = ({ data, location }:any) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <Bio />
+      <h1>All Posts</h1>
       <ol className="post-list" >
         {posts.map((post:any) => {
           if(post.frontmatter.published !== true){
@@ -42,6 +42,7 @@ const BlogIndex = ({ data, location }:any) => {
             <li key={post.fields.slug}>
               <BlogPost
                 title={post.frontmatter.title}
+                date={post.frontmatter.date}
                 slug={post.fields.slug}
                 excerptHtml={post.frontmatter.description || post.excerpt}
               />

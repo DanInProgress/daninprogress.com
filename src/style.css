@@ -1,3 +1,8 @@
+:root {
+    font-family: Archivo, sans-serif;
+    font-weight: 100;
+    color: rgb(71, 71, 71);
+}
 /* CSS Custom Properties Definitions */
 /* basic formatting */
 h1,h2,h3,h4,h5,h6 {
@@ -48,11 +53,14 @@ header {
 
 #layout-wrapper > header {
     grid-area: header;
+    max-width: 48.75rem;
 }
 
 #layout-wrapper > main {
     grid-area: main;
-    max-width: 10in;
+    display: grid;
+    max-width: 48.75rem;
+    grid-template-rows: fit-content(3em) 1fr;
 }
 
 #layout-wrapper > footer {
@@ -60,7 +68,141 @@ header {
 }
 
 header, footer {
-    /* width: 100%; */
+    width: 100%;
     justify-self: start;
     align-self: end;
+}
+
+/* blog list articles */
+.post-list {
+list-style: none;
+
+}
+.post-list article {
+    min-height: 1in;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3em fit-content(10em);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "title . pub-date"
+        "excerpt excerpt excerpt"
+        "read-more . .";
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid #e6e6e6;
+}
+
+
+
+.post-list article > h2 {
+    margin: 0;
+    grid-area: title;
+    font-size: 1.17em;
+}
+.post-list article > h2 > a,
+article > h1:first-of-type > a {
+    color: #060606;
+    font-weight: 800;
+    text-decoration: none;
+}
+.post-list article > h2:hover > a {
+    text-decoration: underline;
+}
+
+.post-list article > .publication-date {
+    grid-area: pub-date;
+    font-size: .8em;
+    white-space: nowrap;
+    font-family: Archivo, sans-serif;
+    font-style: italic;
+    color: rgb(117, 117, 117);
+    margin: 0;
+    justify-self: end;
+    align-self: start;
+    display: block;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.post-list article > p {
+    grid-area: excerpt;
+    margin-top: 1rem;
+}
+
+.post-list article > a.read-more {
+    margin-top: 1rem;
+    grid-area: read-more;
+    color: #292929;
+
+}
+
+main > h1:first-of-type,
+article > h1:first-of-type {
+    border-bottom: 1px solid #e6e6e6;
+    padding: .5em;
+}
+
+ol.post-list {
+    display: flex;
+    padding-bottom: 4rem;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-width: 0;
+    max-width: 48.75rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-list > li:first-of-type > article {
+    border-top: unset;
+}
+
+@font-face {
+    font-family: "FontAwesomeBrands";
+    font-weight: normal;
+    font-style : normal;
+           src : url("../static/fonts/fa-brands-400.woff2");
+}
+@font-face {
+    font-family: "FontAwesome";
+    font-weight: normal;
+    font-style : normal;
+           src : url("../static/fonts/fa-solid-900.woff2");
+}
+
+@font-face {
+    font-family: "FonoCompressed";
+    font-weight: normal;
+    font-style : normal;
+           src : url("../static/fonts/fono-compressed.woff");
+}
+
+@font-face {
+    font-family: "ArchivoNarrow";
+    font-weight: normal;
+    font-style : normal;
+           src : url("../static/fonts/ArchivoNarrow-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "ArchivoNarrow";
+    font-weight: normal;
+    font-style : italic;
+           src : url("../static/fonts/ArchivoNarrow-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Archivo";
+    font-weight: normal;
+    font-style : italic;
+           src : url("../static/fonts/Archivo-Italic-VariableFont_wdth,wght.ttf");
+}
+
+@font-face {
+    font-family: "Archivo";
+    font-weight: normal;
+    font-style : normal;
+           src : url("../static/fonts/Archivo-VariableFont_wdth,wght.ttf");
 }

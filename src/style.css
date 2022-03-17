@@ -1,8 +1,59 @@
+
+
+/* root color setups */
 :root {
+    /* light mode */
+    --light-brand: rgb(35, 169, 225);
+    --light-compliment: rgb(225,95,35);
+    --light-background: hsl(198, 29%, 98%);
+    --light-basetext: hsl(198, 20%, 20%);
+    /* dark mode */
+    --dark-brand: rgb(35, 169, 225);
+    --dark-compliment: rgb(225,95,35);
+    --dark-background: hsl(198, 29%, 20%);
+    --dark-basetext: hsl(198, 20%, 80%);
+
+}
+
+/* defaults */
+:root {
+    --brand: var(--light-brand);
+    --compliment: var(--light-compliment);
+    --background: var(--light-background);
+    --basetext: var(--light-basetext);
+
     font-family: Archivo, sans-serif;
     font-weight: 100;
-    color: rgb(71, 71, 71);
+    color: var(--basetext);
 }
+
+a {
+    color: var(--basetext)
+}
+
+@media screen  and (prefers-color-scheme: dark) {
+    :root {
+        --brand: var(--dark-brand);
+        --compliment: var(--dark-compliment);
+        --background: var(--dark-background);
+        --basetext: var(--dark-basetext);
+    }   
+}
+
+.forcedark * {
+--brand: var(--dark-brand);
+--compliment: var(--dark-compliment);
+--background: var(--dark-background);
+--basetext: var(--dark-basetext);
+}
+
+.forcelight * {
+    --brand: var(--light-brand);
+    --compliment: var(--light-compliment);
+    --background: var(--light-background);
+    --basetext: var(--light-basetext);
+}
+
 /* CSS Custom Properties Definitions */
 /* basic formatting */
 h1,h2,h3,h4,h5,h6 {
@@ -21,25 +72,36 @@ pre.language-text {
 }
 
 header {
+    height: 31.750mm;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
     max-width: 48.75rem;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-bottom: 1px solid #e6e6e6;
+    /* border-bottom: 1px solid #e6e6e6; */
+}
+
+.site-title {
+    align-self: start;
+    justify-self: start;
+    margin-top: 13mm;
+    margin-left: 13mm;
+    margin-bottom: 8mm;
+    height: 25mm;
 }
 
 .site-title a {
-    color: #060606;
-    color: rgb(6 6 6);
+    font-family: FonoCompressed;
+    font-variant: small-caps;
+    font-size: 15mm;
+    color: var(--basetext);
     text-decoration: none;
 }
 
 /* main page grid */
+body {
+    background-color: var(--background);
+}
 #layout-wrapper {
     display: grid;
     grid-template-rows: auto minmax(0,1fr) auto;
@@ -51,15 +113,19 @@ header {
     min-height: 100vh;
 }
 
-#layout-wrapper > header {
-    grid-area: header;
+#layout-wrapper > * {
+    width: 100%;
     max-width: 48.75rem;
+}
+
+#layout-wrapper > header {
+    background: url("../svg-assets/triangle-in-progress.svg") no-repeat top left / 100%;
+    grid-area: header;
 }
 
 #layout-wrapper > main {
     grid-area: main;
     display: grid;
-    max-width: 48.75rem;
     grid-template-rows: fit-content(3em) 1fr;
 }
 
@@ -67,7 +133,13 @@ header {
     grid-area: footer;
 }
 
-header, footer {
+header {
+    width: 100%;
+    justify-self: end;
+    align-self: end;
+}
+
+footer {
     width: 100%;
     justify-self: start;
     align-self: end;
@@ -101,7 +173,7 @@ list-style: none;
     font-size: 1.17em;
 }
 .post-list article > h2 > a,
-article > h1:first-of-type > a {
+article > h1:first-child > a {
     color: #060606;
     font-weight: 800;
     text-decoration: none;
@@ -137,8 +209,8 @@ article > h1:first-of-type > a {
 
 }
 
-main > h1:first-of-type,
-article > h1:first-of-type {
+main > h1:first-child,
+article > h1:first-child {
     border-bottom: 1px solid #e6e6e6;
     padding: .5em;
 }
@@ -155,7 +227,7 @@ ol.post-list {
     margin-right: auto;
 }
 
-.post-list > li:first-of-type > article {
+.post-list > li:first-child > article {
     border-top: unset;
 }
 

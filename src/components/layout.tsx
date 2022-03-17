@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import ToggleDark from "./toggle-dark"
 
 const Layout = ({ location, title, children }:any) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -22,13 +23,14 @@ const Layout = ({ location, title, children }:any) => {
 
   return (
     <div id="layout-wrapper" data-is-root-path={isRootPath}>
-      <header className="site-title">
-        <h1>
+      <header>
+        <h1 className="site-title">
           <Link to="/">{title}</Link>
         </h1>
         <nav>
 
         </nav>
+        <ToggleDark />
       </header>
       <main>{children}</main>
       <footer>

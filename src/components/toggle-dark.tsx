@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
 // import '../styles/toggle.css';
 
-type PassiveStatusCheck = (w: Window) => {
-    readonly matches: boolean;
-    addEventListener<K extends keyof MediaQueryListEventMap>(type: K, listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-    removeEventListener<K extends keyof MediaQueryListEventMap>(type: K, listener: (this: MediaQueryList, ev: MediaQueryListEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-}
-
-
-
 type Theme = {
     name: string
     overrideclass: string
     icon: string
-    preferQuery: MediaQueryList
+    preferQuery: string
 }
 
 // type ThemeStatus = {
@@ -48,19 +40,22 @@ class ThemeManager {
     add(theme:Theme) {
         const that = this
         this.set.set(theme.name, theme)
-        this.preferred.set(theme.name, theme.preferQuery.matches)
+        if(typeof window !== "undefined"){
+            const mq = window.matchMedia(theme.preferQuery)
+            this.preferred.set(theme.name, mq.matches)
 
-        theme.preferQuery.addEventListener("change",(ev)=>{
-            const pref = this.preferred.get(theme.name)
-            if(pref !== undefined){
-                if(pref === ev.matches){
-                    return
+            mq.addEventListener("change",(ev)=>{
+                const pref = this.preferred.get(theme.name)
+                if(pref !== undefined){
+                    if(pref === ev.matches){
+                        return
+                    }
                 }
-            }
-            this.emitChange()
-            this.preferred.set(theme.name, ev.matches)
-            this.reset()
-        })
+                this.emitChange()
+                this.preferred.set(theme.name, ev.matches)
+                this.reset()
+            })
+        }
     }
     reset() {
         if(this.pinned === null){
@@ -77,6 +72,9 @@ class ThemeManager {
     }
     load() {
         if(this.pinned !== null){
+            return
+        }
+        if(typeof localStorage === "undefined"){
             return
         }
         const data = localStorage.getItem('pinnedTheme');
@@ -151,81 +149,24 @@ class ThemeManager {
     }
 }
 
-
-const themeList = [
-    "forcelight",
-    "forcedark",
-]
-
-function setTheme(themeName: string) {
-    const dEl = document.documentElement
-    dEl.classList.add(themeName)
-    Object.keys(themeList)
-        .filter((v)=>v !== themeName)
-        .forEach((v)=> dEl.classList.remove(v))
-}
-
 const themeManager = new ThemeManager();
 themeManager.add({
     name: "light",
     overrideclass: "forcelight",
-    preferQuery: window.matchMedia('(prefers-color-scheme: light)'),
+    preferQuery: '(prefers-color-scheme: light)',
     icon: "sun"
 })
 themeManager.add({
     name: "dark",
     overrideclass: "forcedark",
-    preferQuery: window.matchMedia('(prefers-color-scheme: dark)'),
+    preferQuery: '(prefers-color-scheme: dark)',
     icon: "moon"
 })
 themeManager.load()
 
-function ToggleDarkOld() {
-
-    const [togClass, setTogClass] = useState("");
-
-    const dEl = document.documentElement
-
-    const theme = Object.keys(themeList)
-        .find((v)=>dEl.classList.contains(v)) || (
-        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ?
-        "forcedark" : "forcelight"
-    )
-
-    const handleOnClick = () => {
-        if (togClass === "forcelight") {
-            setTheme('forcedark')
-            setTogClass('forcedark')
-        } else {
-            setTheme('forcelight')
-            setTogClass('forcelight')
-        }
-    }
-
-    useEffect(() => {
-        setTogClass(theme)
-    }, [theme])
-
-    return (
-        <div className="container--toggle">
-            {
-                togClass === "forcelight" ?
-                <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick} checked />
-                :
-                <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick} />
-            }
-            <label htmlFor="toggle" className="toggle--label">
-                <span className="toggle--label-background"></span>
-            </label>
-        </div>
-    )
-}
-
 function ToggleDark() {
     
     const [togClass, setTogClass] = useState(themeManager.getPreferredTheme()?.name);
-
-    const dEl = document.documentElement
 
     const themeList = themeManager.getThemes()
     const currentThemeIdx = themeList.findIndex((v)=>v.name === togClass)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { MouseEventHandler, useEffect, useState } from 'react';
 // import '../styles/toggle.css';
 
 type Theme = {
@@ -7,29 +7,6 @@ type Theme = {
     icon: string
     preferQuery: string
 }
-
-// type ThemeStatus = {
-//     active: boolean
-//     pinned: boolean
-//     preferred: boolean
-// }
-
-// class StructuredTheme implements Theme {
-//     name: string;
-//     overrideclass: string;
-//     icon: string;
-//     constructor(name) {
-//         this.name = name
-//         this.overrideclass = ""
-//     }
-//     forceEnable(){
-
-//     }
-//     isEnabled(): ThemeStatus {
-
-//     }
-
-// }
 
 
 class ThemeManager {
@@ -164,7 +141,7 @@ themeManager.add({
 })
 themeManager.load()
 
-function ToggleDark() {
+function ToggleTheme() {
     
     const [togClass, setTogClass] = useState(themeManager.getPreferredTheme()?.name);
 
@@ -172,7 +149,8 @@ function ToggleDark() {
     const currentThemeIdx = themeList.findIndex((v)=>v.name === togClass)
     const nextTheme = themeList.at((currentThemeIdx + 1) % themeList.length)
 
-    const handleOnClick = () => {
+    const handleOnClick: MouseEventHandler = (e) => {
+        e.preventDefault()
         themeManager.pinTheme(nextTheme)
     }
 
@@ -182,11 +160,10 @@ function ToggleDark() {
         })
     }, [0])
 
+    const title = `enable ${nextTheme?.name} UI theme`
     return (
-        <div className="theme-toggle">
-            <i className={`fa-${nextTheme?.icon}`} onClick={handleOnClick} >{nextTheme?.name}</i>
-        </div>
+        <i role="button" tabIndex={0} className={`fa-${nextTheme?.icon}`} aria-label={title} title={title} onClick={handleOnClick} />
     )
 }
 
-export default ToggleDark;
+export default ToggleTheme;

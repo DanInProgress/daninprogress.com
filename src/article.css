@@ -1,0 +1,21 @@
+/* article grid */
+
+#layout-wrapper>main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: max-content;
+    grid-template-columns: fit-content(var(--layout-max-width));
+}
+
+main>article {
+    grid-column: 1;
+    max-width: var(--layout-max-width);
+}
+
+
+/* deal with code block width */
+
+article pre {
+    max-width: 100%;
+    overflow-x: scroll;
+}

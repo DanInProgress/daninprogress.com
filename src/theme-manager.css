@@ -1,0 +1,17 @@
+.theme-manager {
+    cursor: pointer;
+}
+
+.fa-sun::before {
+    display: inline;
+    content: "\f185";
+    font-family: FontAwesome;
+    font-style: normal;
+}
+
+.fa-moon::before {
+    display: inline;
+    content: "\f186";
+    font-family: FontAwesome;
+    font-style: normal;
+}

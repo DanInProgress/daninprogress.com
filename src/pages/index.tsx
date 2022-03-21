@@ -4,8 +4,6 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 
-import "../normalize.css"
-import "../style.css"
 
 import Seo from "../components/seo"
 import BlogPost from "../components/blog-post"

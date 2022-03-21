@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "FontAwesomeBrands";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../static/fonts/fa-brands-400.woff2");
+}
+
+@font-face {
+    font-family: "FontAwesome";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../static/fonts/fa-solid-900.woff2");
+}
+
+@font-face {
+    font-family: "FonoCompressed";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../static/fonts/fono-compressed.woff");
+}
+
+@font-face {
+    font-family: "ArchivoNarrow";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../static/fonts/ArchivoNarrow-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "ArchivoNarrow";
+    font-weight: normal;
+    font-style: italic;
+    src: url("../static/fonts/ArchivoNarrow-Italic-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Archivo";
+    font-weight: normal;
+    font-style: italic;
+    src: url("../static/fonts/Archivo-Italic-VariableFont_wdth,wght.ttf");
+}
+
+@font-face {
+    font-family: "Archivo";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../static/fonts/Archivo-VariableFont_wdth,wght.ttf");
+}

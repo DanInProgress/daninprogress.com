@@ -3,6 +3,13 @@ import { Link } from "gatsby"
 import ToggleTheme from "./theme-manager"
 import TopNav from "./top-nav"
 
+import "../normalize.css"
+import "../fonts.css"
+import "../style.css"
+import "../colors.css"
+import "../layout.css"
+import "../layout-mobile.css"
+
 const Layout = ({ location, title, children }:{location: URL, title: string, children: React.ReactNode }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath

@@ -1,0 +1,29 @@
+@media screen and (max-width: 6in) {
+    #layout-wrapper {
+        --layout-max-width: min(calc(100vw - 1rem), 10in);
+    }
+    header>nav {
+        margin-top: 1em;
+        margin-bottom: 1.5em;
+    }
+    header>*:nth-child(2) {
+        margin-left: revert;
+    }
+    #layout-wrapper>header {
+        margin-bottom: 1em;
+        height: fit-content;
+    }
+    #layout-wrapper>header,
+    #layout-wrapper>footer {
+        width: 100vw;
+        max-width: none;
+        overflow-x: hidden;
+    }
+    header> :first-child {
+        flex-basis: 100%;
+    }
+    #layout-wrapper {
+        grid-template-columns: .5em fit-content(var(--layout-max-width)) .5em;
+        grid-template-areas: "header header header" ". main ." "footer footer footer";
+    }
+}

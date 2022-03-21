@@ -1,6 +1,8 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const DEVMODE = true
+
 function findFromIndex(arr, start, increment, get){
   for(let i=start; i>-1 && i<arr.length; i = i + increment){
     const v = get(arr[i])
@@ -56,9 +58,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   if (posts.length > 0) {
     posts.forEach((post, index) => {
       const previousPostId = findFromIndex(posts,index-1,-1,
-        (p)=>p.frontmatter.published === true? p.id : undefined)
+        (p)=>((p.frontmatter.published === true) || DEVMODE)? p.id : undefined)
       const nextPostId = findFromIndex(posts,index+1,1,
-        (p)=>p.frontmatter.published === true? p.id : undefined)
+        (p)=>((p.frontmatter.published === true) || DEVMODE)? p.id : undefined)
         createPage({
           path: post.fields.slug,
           component: blogPost,

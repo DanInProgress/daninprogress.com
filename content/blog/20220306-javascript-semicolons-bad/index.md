@@ -30,12 +30,14 @@ Taken from a description by Isaac Schlueter (and quoted on this [eslint ](https:
 
 **ASI hazards** are scenarios where automatic semicolon insertion causes behavior that would be unexpected to the programmer. The prototypical example of this is
 
+```JavaScript
     // Ex. unintendedMultiline
     var a = {}
 
     (function(){
        // function code
     })()
+```
 
 You might expect this to be execute the function on line 3, but line 1 was never terminated. Instead, it will attempt to call {} with function(){...} and then call the return as a function. The result is a runtime error with an error message seemingly unrelated to the code changes.
 
@@ -49,12 +51,14 @@ I’m not sure it is. Will using semicolons in every location where you would li
 
 **No.** *for counter example*, this function will always return undefined
 
+```JavaScript
     unintentionalSingleLineASIHazard(name) {
     return 
     `\
     long templated string that
     that you want to return that contains ${name}
     `; }
+```
 
 ASI Hazards still exist for developers who use semicolons every time they *intend* to end a statement. This demonstrates the importance of understanding ASI for JavaScript Developers, even if they diligently use semicolons.
 
@@ -73,12 +77,14 @@ let’s look at how our two examples above interact with a common eslint rule.
 
 running eslint --fix produces
 
+```JavaScript
     // ignores ambiguous ending
     var a = {}
 
     (function(){
        // function code
     })() ;
+```
 
 *unintendedSingleLine***
 **if you run eslint against the *unintendedSingleLine *example above, these are the errors:
@@ -86,12 +92,14 @@ running eslint --fix produces
 
 running eslint --fix produces
 
+```JavaScript
     unintendedSingleLine(name) {
     return ;
     `\
     long templated string that
     that you want to return that contains ${name}
     `; }
+```
 
 The result is an error that is masked by the linter and might make its way into production.
 

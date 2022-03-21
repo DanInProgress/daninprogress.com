@@ -1,0 +1,55 @@
+/* color vars */
+
+:root {
+    /* light mode */
+    --light-brand: rgb(35, 169, 225);
+    --light-compliment: rgb(225, 95, 35);
+    --light-background: hsl(198, 29%, 98%);
+    --light-basetext: hsl(198, 20%, 20%);
+    --light-panel-text: hsl(198, 20%, 20%);
+    --light-panel-background: hsl(198, 29%, 95%);
+    /* dark mode */
+    --dark-brand: rgb(35, 169, 225);
+    --dark-compliment: rgb(225, 95, 35);
+    --dark-background: hsl(198, 29%, 20%);
+    --dark-basetext: hsl(198, 20%, 100%);
+    --dark-panel-text: hsl(198, 20%, 100%);
+    --dark-panel-background: hsl(198, 29%, 25%);
+}
+
+
+/* dark mode handling */
+
+@media screen and (prefers-color-scheme: dark) {
+     :root {
+        --brand: var(--dark-brand);
+        --compliment: var(--dark-compliment);
+        --background: var(--dark-background);
+        --panel-background: var(--dark-panel-background);
+        --basetext: var(--dark-basetext);
+    }
+}
+
+:root {
+    --brand: var(--light-brand);
+    --compliment: var(--light-compliment);
+    --background: var(--light-background);
+    --panel-background: var(--light-panel-background);
+    --basetext: var(--light-basetext);
+}
+
+:root.forcedark {
+    --brand: var(--dark-brand);
+    --compliment: var(--dark-compliment);
+    --background: var(--dark-background);
+    --panel-background: var(--dark-panel-background);
+    --basetext: var(--dark-basetext);
+}
+
+:root.forcelight {
+    --brand: var(--light-brand);
+    --compliment: var(--light-compliment);
+    --background: var(--light-background);
+    --panel-background: var(--light-panel-background);
+    --basetext: var(--light-basetext);
+}

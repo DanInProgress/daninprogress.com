@@ -1,5 +1,6 @@
 import React, { MouseEventHandler, useEffect, useState } from 'react';
-// import '../styles/toggle.css';
+
+import '../theme-manager.css';
 
 type Theme = {
     name: string
@@ -162,7 +163,7 @@ function ToggleTheme() {
 
     const title = `enable ${nextTheme?.name} UI theme`
     return (
-        <i role="button" tabIndex={0} className={`fa-${nextTheme?.icon}`} aria-label={title} title={title} onClick={handleOnClick} />
+        <i role="button" tabIndex={0} className={`theme-manager fa-${nextTheme?.icon}`} aria-label={title} title={title} onClick={handleOnClick} />
     )
 }
 

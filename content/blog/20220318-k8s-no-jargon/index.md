@@ -32,7 +32,7 @@ has been valuable in understanding and interacting with the kubernetes API.  -->
 ## Hello Kubernetes
 
 > `kubernetes` at its **very** simplest is a standard set of extensible APIs to start,
-track, and stop the execution of containers running on a set of computers.
+> track, and stop the execution of containers running on a set of computers.
 
 All of your basic interactions with kubernetes do nothing more than send JSON
 with HTTP requests. 

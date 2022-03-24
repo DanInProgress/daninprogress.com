@@ -35,7 +35,7 @@ has been valuable in understanding and interacting with the kubernetes API.  -->
 > track, and stop the execution of containers running on a set of computers.
 
 All of your basic interactions with kubernetes do nothing more than send JSON
-with HTTP requests. 
+with HTTP requests to these apis. 
 
 ### kubectl apply
 

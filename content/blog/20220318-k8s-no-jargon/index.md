@@ -17,7 +17,7 @@ but always left me wondering:
 - *what is happening?*
 
 I dug deeper, looked under the covers, and what I found has helped me better
-understand, describe and apply what I've learned.
+understand, describe and apply my kubernetes knowledge.
 
 The jargon and magic may seem intimidating, but read on and we'll break down the
 kubernetes API into simple, familiar building blocks.

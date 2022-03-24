@@ -1,6 +1,6 @@
 @media screen and (max-width: 6in) {
     #layout-wrapper {
-        --layout-max-width: min(calc(100vw - 1rem), 10in);
+        --layout-max-width: min(calc(100vw - 2rem), 10in);
     }
     header>nav {
         margin-top: 1em;
@@ -23,7 +23,7 @@
         flex-basis: 100%;
     }
     #layout-wrapper {
-        grid-template-columns: .5em fit-content(var(--layout-max-width)) .5em;
+        grid-template-columns: 1rem fit-content(var(--layout-max-width)) 1rem;
         grid-template-areas: "header header header" ". main ." "footer footer footer";
     }
 }

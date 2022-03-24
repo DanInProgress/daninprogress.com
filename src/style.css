@@ -1,6 +1,6 @@
 :root {
     font-family: Archivo, sans-serif;
-    font-size: 14pt;
+    font-size: 12pt;
     line-height: 1.35;
     font-weight: 100;
     color: var(--basetext)
@@ -40,13 +40,17 @@ p {
     margin-left: .5rem;
 }
 
-pre {
-    padding: 16px;
+pre,
+.mermaid {
+    padding: 1rem;
     overflow: auto;
-    font-size: 85%;
+    font-size: .85rem;
     line-height: 1.45;
-    background-color: var(--panel-background);
     border-radius: 6px;
+}
+
+.mermaid {
+    background-color: var(--mermaid-background);
 }
 
 a {
@@ -61,6 +65,10 @@ a:hover {
     color: var(--basetext)
 }
 
+article>.article-text a {
+    color: var(--brand)
+}
+
 header a:hover {
     text-decoration: none;
 }
@@ -71,7 +79,7 @@ blockquote {
 }
 
 #layout-wrapper>header {
-    background: url(../svg-assets/triangle-in-progress.svg) no-repeat left 0 top 0 / 41.75rem padding-box;
+    background: url(../svg-assets/triangle-in-progress.svg) no-repeat left 0 top 0 / 49.303rem padding-box;
 }
 
 body {
@@ -91,4 +99,8 @@ body {
     border-bottom: 1px solid #e6e6e6;
     margin-top: 3em;
     margin-bottom: 1em;
+}
+
+.post-list {
+    list-style: none;
 }

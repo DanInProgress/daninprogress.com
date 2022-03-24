@@ -1,0 +1,47 @@
+    .callout {
+        background-color: var(--panel-background);
+        border-radius: .5rem;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: fit-content(50%) auto;
+        grid-template-areas: "icon text";
+        margin: 1rem 1.5rem 2rem 1.5rem;
+        padding: .25rem;
+    }
+    
+    @media screen and (max-width: 6in) {
+        .callout {
+            margin: 1rem .5rem 2rem .5rem;
+        }
+    }
+    
+    .callout>.icon {
+        font-size: 2.5rem;
+        align-self: center;
+        justify-self: center;
+    }
+    
+    .callout>.icon,
+    .callout>.text {
+        padding: .5rem;
+    }
+    
+    .callout>.text {
+        border-left: var(--panel-background) 3px solid;
+        align-self: center;
+        justify-self: start;
+    }
+    
+    .fa {
+        font-family: FontAwesome;
+        font-style: normal;
+    }
+    
+    .callout.construction {
+        background-color: rgba(255, 217, 0, 70%);
+        color: var(--light-panel-text);
+    }
+    
+    .callout.construction>.text {
+        border-left: var(--dark-panel-background) 3px solid;
+    }

@@ -16,6 +16,13 @@ main>article {
 /* deal with code block width */
 
 article pre {
-    max-width: 100%;
+    --prism-block-margin-x: 5%;
+    width: calc(100% - 2 * ( var(--prism-block-margin-x) + var(--prism-block-padding-x)));
     overflow-x: scroll;
+}
+
+.mermaid {
+    width: calc(100% - 2 * ( 1rem + 5%));
+    margin-left: 5%;
+    margin-right: 5%;
 }

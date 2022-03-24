@@ -3,11 +3,14 @@ import { Link,graphql } from "gatsby"
 import Bio from "./bio"
 
 import "../article.css"
+import Callout from "./callout"
 
 type BlogPostProp = {
+    frontmatter: any
     title: string
     slug?: string
     date?: string
+    tags?: Array<string>
     previewOnly?: boolean
     excerptHtml?: string
     html?: string
@@ -41,7 +44,7 @@ const Excerpt = ({title, date, excerptHtml, slug}:BlogPostProp) => (
   </article>
 )
 
-const Post = ({title, slug, html}:BlogPostProp) => (
+const Post = ({title, tags, slug, html}:BlogPostProp) => (
     <article
     itemScope
     itemType="http://schema.org/Article"
@@ -51,6 +54,15 @@ const Post = ({title, slug, html}:BlogPostProp) => (
         <span itemProp="headline">{title}</span>
         </Link>
     </h1>
+    {tags?.map((v:string)=>{
+      switch(v) {
+        case "under-construction":
+            return (<Callout type="construction" >
+                      {"I'm still working on this post, feel free to read it over and give me feedback :)"}
+                    </Callout>)
+      }
+      return undefined
+    })}
     <span className="article-text"
     dangerouslySetInnerHTML={{
         __html: html || "",

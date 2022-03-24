@@ -1,0 +1,27 @@
+:root {
+    --prism-background: var(--prism-light-background);
+    --prism-boolean: var(--prism-light-boolean);
+    --prism-builtin: var(--prism-light-builtin);
+    --prism-class: var(--prism-light-class);
+    --prism-comment: var(--prism-light-comment);
+    --prism-constant: var(--prism-light-constant);
+    --prism-decorator: var(--prism-light-decorator);
+    --prism-deleted: var(--prism-light-deleted);
+    --prism-foreground: var(--prism-light-foreground);
+    --prism-function: var(--prism-light-function);
+    --prism-json-property: var(--prism-light-json-property);
+    --prism-keyword: var(--prism-light-keyword);
+    --prism-line-highlight-background: var(--prism-light-line-highlight-background);
+    --prism-line-number-gutter: var(--prism-light-line-number-gutter);
+    --prism-line-number: var(--prism-light-line-number);
+    --prism-literal: var(--prism-light-literal);
+    --prism-namespace: var(--prism-light-namespace);
+    --prism-number: var(--prism-light-number);
+    --prism-property: var(--prism-light-property);
+    --prism-punctuation: var(--prism-light-punctuation);
+    --prism-regex: var(--prism-light-regex);
+    --prism-scheme: var(--prism-light-scheme);
+    --prism-selection-background: var(--prism-light-selection-background);
+    --prism-string: var(--prism-light-string);
+    --prism-variable: var(--prism-light-variable);
+}

@@ -8,6 +8,7 @@
     --light-basetext: hsl(198, 20%, 20%);
     --light-panel-text: hsl(198, 20%, 20%);
     --light-panel-background: hsl(198, 29%, 95%);
+    --mermaid-light-background: var(--light-panel-background);
     /* dark mode */
     --dark-brand: rgb(35, 169, 225);
     --dark-compliment: rgb(225, 95, 35);
@@ -15,10 +16,73 @@
     --dark-basetext: hsl(198, 20%, 100%);
     --dark-panel-text: hsl(198, 20%, 100%);
     --dark-panel-background: hsl(198, 29%, 25%);
+    --mermaid-dark-background: hsl(198, 10%, 55%);
+}
+
+
+/* prism-vars */
+
+:root {
+    --prism-dark-scheme: dark;
+    --prism-dark-foreground: var(--dark-panel-text);
+    --prism-dark-background: var(--dark-panel-background);
+    --prism-dark-comment: #758575;
+    --prism-dark-string: #d48372;
+    --prism-dark-literal: #429988;
+    --prism-dark-keyword: #4d9375;
+    --prism-dark-function: #a1b567;
+    --prism-dark-deleted: #a14f55;
+    --prism-dark-class: #54b1bf;
+    --prism-dark-builtin: #e0a569;
+    --prism-dark-property: #dd8e6e;
+    --prism-dark-namespace: #db889a;
+    --prism-dark-punctuation: #858585;
+    --prism-dark-decorator: #bd8f8f;
+    --prism-dark-number: #6394bf;
+    --prism-dark-boolean: #1c6b48;
+    --prism-dark-variable: #c2b36e;
+    --prism-dark-regex: #ab5e3f;
+    --prism-dark-json-property: #6b8b9e;
+    --prism-dark-line-number: #888888;
+    --prism-dark-line-number-gutter: #eeeeee;
+    --prism-dark-line-highlight-background: #444444;
+    --prism-dark-selection-background: #444444;
+}
+
+ :root {
+    --prism-light-scheme: light;
+    --prism-light-foreground: var(--light-panel-text);
+    --prism-light-background: var(--light-panel-background);
+    --prism-light-comment: #a0ada0;
+    --prism-light-string: #b56959;
+    --prism-light-literal: #2f8a89;
+    --prism-light-keyword: #1c6b48;
+    --prism-light-function: #6c7834;
+    --prism-light-deleted: #a14f55;
+    --prism-light-class: #2993a3;
+    --prism-light-builtin: #ab5959;
+    --prism-light-property: #b58451;
+    --prism-light-namespace: #b05a78;
+    --prism-light-punctuation: #8e8f8b;
+    --prism-light-decorator: #bd8f8f;
+    --prism-light-number: #296aa3;
+    --prism-light-boolean: #1c6b48;
+    --prism-light-constant: #a65e2b;
+    --prism-light-regex: #ab5e3f;
+    --prism-light-json-property: #698c96;
 }
 
 
 /* dark mode handling */
+
+:root {
+    --brand: var(--light-brand);
+    --compliment: var(--light-compliment);
+    --background: var(--light-background);
+    --panel-background: var(--light-panel-background);
+    --basetext: var(--light-basetext);
+    --mermaid-background: var(--mermaid-light-background);
+}
 
 @media screen and (prefers-color-scheme: dark) {
      :root {
@@ -27,15 +91,8 @@
         --background: var(--dark-background);
         --panel-background: var(--dark-panel-background);
         --basetext: var(--dark-basetext);
+        --mermaid-background: var(--mermaid-dark-background);
     }
-}
-
-:root {
-    --brand: var(--light-brand);
-    --compliment: var(--light-compliment);
-    --background: var(--light-background);
-    --panel-background: var(--light-panel-background);
-    --basetext: var(--light-basetext);
 }
 
 :root.forcedark {
@@ -44,6 +101,7 @@
     --background: var(--dark-background);
     --panel-background: var(--dark-panel-background);
     --basetext: var(--dark-basetext);
+    --mermaid-background: var(--mermaid-dark-background);
 }
 
 :root.forcelight {
@@ -52,4 +110,122 @@
     --background: var(--light-background);
     --panel-background: var(--light-panel-background);
     --basetext: var(--light-basetext);
+    --mermaid-background: var(--mermaid-light-background);
+}
+
+
+/* prism color switch */
+
+:root {
+    --prism-background: var(--prism-light-background);
+    --prism-boolean: var(--prism-light-boolean);
+    --prism-builtin: var(--prism-light-builtin);
+    --prism-class: var(--prism-light-class);
+    --prism-comment: var(--prism-light-comment);
+    --prism-constant: var(--prism-light-constant);
+    --prism-decorator: var(--prism-light-decorator);
+    --prism-deleted: var(--prism-light-deleted);
+    --prism-foreground: var(--prism-light-foreground);
+    --prism-function: var(--prism-light-function);
+    --prism-json-property: var(--prism-light-json-property);
+    --prism-keyword: var(--prism-light-keyword);
+    --prism-line-highlight-background: var(--prism-light-line-highlight-background);
+    --prism-line-number-gutter: var(--prism-light-line-number-gutter);
+    --prism-line-number: var(--prism-light-line-number);
+    --prism-literal: var(--prism-light-literal);
+    --prism-namespace: var(--prism-light-namespace);
+    --prism-number: var(--prism-light-number);
+    --prism-property: var(--prism-light-property);
+    --prism-punctuation: var(--prism-light-punctuation);
+    --prism-regex: var(--prism-light-regex);
+    --prism-scheme: var(--prism-light-scheme);
+    --prism-selection-background: var(--prism-light-selection-background);
+    --prism-string: var(--prism-light-string);
+    --prism-variable: var(--prism-light-variable);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+     :root {
+        --prism-background: var(--prism-dark-background);
+        --prism-boolean: var(--prism-dark-boolean);
+        --prism-builtin: var(--prism-dark-builtin);
+        --prism-class: var(--prism-dark-class);
+        --prism-comment: var(--prism-dark-comment);
+        --prism-constant: var(--prism-dark-constant);
+        --prism-decorator: var(--prism-dark-decorator);
+        --prism-deleted: var(--prism-dark-deleted);
+        --prism-foreground: var(--prism-dark-foreground);
+        --prism-function: var(--prism-dark-function);
+        --prism-json-property: var(--prism-dark-json-property);
+        --prism-keyword: var(--prism-dark-keyword);
+        --prism-line-highlight-background: var(--prism-dark-line-highlight-background);
+        --prism-line-number-gutter: var(--prism-dark-line-number-gutter);
+        --prism-line-number: var(--prism-dark-line-number);
+        --prism-literal: var(--prism-dark-literal);
+        --prism-namespace: var(--prism-dark-namespace);
+        --prism-number: var(--prism-dark-number);
+        --prism-property: var(--prism-dark-property);
+        --prism-punctuation: var(--prism-dark-punctuation);
+        --prism-regex: var(--prism-dark-regex);
+        --prism-scheme: var(--prism-dark-scheme);
+        --prism-selection-background: var(--prism-dark-selection-background);
+        --prism-string: var(--prism-dark-string);
+        --prism-variable: var(--prism-dark-variable);
+    }
+}
+
+:root.forcedark {
+    --prism-background: var(--prism-dark-background);
+    --prism-boolean: var(--prism-dark-boolean);
+    --prism-builtin: var(--prism-dark-builtin);
+    --prism-class: var(--prism-dark-class);
+    --prism-comment: var(--prism-dark-comment);
+    --prism-constant: var(--prism-dark-constant);
+    --prism-decorator: var(--prism-dark-decorator);
+    --prism-deleted: var(--prism-dark-deleted);
+    --prism-foreground: var(--prism-dark-foreground);
+    --prism-function: var(--prism-dark-function);
+    --prism-json-property: var(--prism-dark-json-property);
+    --prism-keyword: var(--prism-dark-keyword);
+    --prism-line-highlight-background: var(--prism-dark-line-highlight-background);
+    --prism-line-number-gutter: var(--prism-dark-line-number-gutter);
+    --prism-line-number: var(--prism-dark-line-number);
+    --prism-literal: var(--prism-dark-literal);
+    --prism-namespace: var(--prism-dark-namespace);
+    --prism-number: var(--prism-dark-number);
+    --prism-property: var(--prism-dark-property);
+    --prism-punctuation: var(--prism-dark-punctuation);
+    --prism-regex: var(--prism-dark-regex);
+    --prism-scheme: var(--prism-dark-scheme);
+    --prism-selection-background: var(--prism-dark-selection-background);
+    --prism-string: var(--prism-dark-string);
+    --prism-variable: var(--prism-dark-variable);
+}
+
+:root.forcelight {
+    --prism-background: var(--prism-light-background);
+    --prism-boolean: var(--prism-light-boolean);
+    --prism-builtin: var(--prism-light-builtin);
+    --prism-class: var(--prism-light-class);
+    --prism-comment: var(--prism-light-comment);
+    --prism-constant: var(--prism-light-constant);
+    --prism-decorator: var(--prism-light-decorator);
+    --prism-deleted: var(--prism-light-deleted);
+    --prism-foreground: var(--prism-light-foreground);
+    --prism-function: var(--prism-light-function);
+    --prism-json-property: var(--prism-light-json-property);
+    --prism-keyword: var(--prism-light-keyword);
+    --prism-line-highlight-background: var(--prism-light-line-highlight-background);
+    --prism-line-number-gutter: var(--prism-light-line-number-gutter);
+    --prism-line-number: var(--prism-light-line-number);
+    --prism-literal: var(--prism-light-literal);
+    --prism-namespace: var(--prism-light-namespace);
+    --prism-number: var(--prism-light-number);
+    --prism-property: var(--prism-light-property);
+    --prism-punctuation: var(--prism-light-punctuation);
+    --prism-regex: var(--prism-light-regex);
+    --prism-scheme: var(--prism-light-scheme);
+    --prism-selection-background: var(--prism-light-selection-background);
+    --prism-string: var(--prism-light-string);
+    --prism-variable: var(--prism-light-variable);
 }

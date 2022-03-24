@@ -6,7 +6,6 @@ import Seo from "../components/seo"
 
 import { BaseMarkdownRemark } from "../graphql/remark"
 
-import { Url } from "url"
 import { SiteMetadata } from "../graphql/site"
 import BlogPost from "../components/blog-post"
 
@@ -32,7 +31,7 @@ type BlogPostData = {
   next: AdjacentPostSlugs
 }
 
-const BlogPostTemplate = ({ data, location }:{data: BlogPostData, location: Url}) => {
+const BlogPostTemplate = ({ data, location }:{data: BlogPostData, location: URL}) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title || `Title`
   const { previous, next } = data
@@ -44,9 +43,11 @@ const BlogPostTemplate = ({ data, location }:{data: BlogPostData, location: Url}
         description={post.frontmatter.description || post.excerpt}
       />
       <BlogPost 
+        frontmatter={post.frontmatter}
         title={post.frontmatter.title}
         date={post.frontmatter.date}
         html={post.html}
+        tags={post.frontmatter.tags}
       />
       <nav className="blog-post-nav">
         <ul
@@ -99,6 +100,8 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        construction
+        tags
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

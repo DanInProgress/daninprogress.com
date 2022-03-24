@@ -4,6 +4,7 @@ import ToggleTheme from "./theme-manager"
 import TopNav from "./top-nav"
 
 import "../normalize.css"
+import "../prism.css"
 import "../fonts.css"
 import "../style.css"
 import "../colors.css"

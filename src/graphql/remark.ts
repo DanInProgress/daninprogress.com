@@ -4,6 +4,7 @@ export type BaseMarkdownRemark = {
         title?: string
         description?: string
         date?: string
+        tags?: Array<string>
     }
     html?: string
     excerpt?: string

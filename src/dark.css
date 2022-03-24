@@ -1,0 +1,27 @@
+:root {
+    --prism-background: var(--prism-dark-background);
+    --prism-boolean: var(--prism-dark-boolean);
+    --prism-builtin: var(--prism-dark-builtin);
+    --prism-class: var(--prism-dark-class);
+    --prism-comment: var(--prism-dark-comment);
+    --prism-constant: var(--prism-dark-constant);
+    --prism-decorator: var(--prism-dark-decorator);
+    --prism-deleted: var(--prism-dark-deleted);
+    --prism-foreground: var(--prism-dark-foreground);
+    --prism-function: var(--prism-dark-function);
+    --prism-json-property: var(--prism-dark-json-property);
+    --prism-keyword: var(--prism-dark-keyword);
+    --prism-line-highlight-background: var(--prism-dark-line-highlight-background);
+    --prism-line-number-gutter: var(--prism-dark-line-number-gutter);
+    --prism-line-number: var(--prism-dark-line-number);
+    --prism-literal: var(--prism-dark-literal);
+    --prism-namespace: var(--prism-dark-namespace);
+    --prism-number: var(--prism-dark-number);
+    --prism-property: var(--prism-dark-property);
+    --prism-punctuation: var(--prism-dark-punctuation);
+    --prism-regex: var(--prism-dark-regex);
+    --prism-scheme: var(--prism-dark-scheme);
+    --prism-selection-background: var(--prism-dark-selection-background);
+    --prism-string: var(--prism-dark-string);
+    --prism-variable: var(--prism-dark-variable);
+}

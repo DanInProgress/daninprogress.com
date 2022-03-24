@@ -1,5 +1,6 @@
 #layout-wrapper {
     --layout-max-width: min(calc(100vw - 2rem), 10in);
+    overflow-x: hidden;
 }
 
 #layout-wrapper {
@@ -83,6 +84,6 @@ header .theme-manager {
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: 1em;
-    margin-right: 2.5em;
+    margin-top: 1rem;
+    margin-right: 2.5rem;
 }

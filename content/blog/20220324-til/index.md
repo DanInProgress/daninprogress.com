@@ -1,9 +1,8 @@
 ---
-published: false
+published: true
 construction: true
 title: Thursday I Learned - Mar 22, 2022
 date: 2022-03-24
-description: A hello world introduction to kubernetes that doesn't skip the details.
 tags:
   - kubernetes
   - k8s

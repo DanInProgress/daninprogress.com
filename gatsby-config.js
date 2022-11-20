@@ -16,7 +16,6 @@ module.exports = {
         }
     },
     plugins: [
-        `gatsby-plugin-react-helmet`,
         `gatsby-plugin-image`,
         {
             resolve: `gatsby-source-filesystem`,
@@ -36,19 +35,23 @@ module.exports = {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [{
-                        resolve: `gatsby-remark-images`,
-                        options: {
-                            maxWidth: 630,
-                        },
+                    resolve: `gatsby-remark-images`,
+                    options: {
+                        maxWidth: 630,
                     },
-                    {
-                        resolve: `gatsby-remark-mermaid`,
-                        options: {
-                            mermaidOptions: {
-                                theme: "neutral"
-                            }
+                },
+                {
+                    resolve: `gatsby-remark-mermaid`,
+                    options: {
+                        mermaidOptions: {
+                            theme: "hsla",
+                            themeVariables: {
+                                primaryColor: "hsla(var(--light-brand-h),var(--light-brand-s),var(--light-brand-l),var(--light-brand-a))",
+                                // "primaryColor": "hsla(179deg,49.2%,36.3%,1)",
+                            },
                         }
-                    },
+                    }
+                },
                     `gatsby-remark-prismjs`,
                     `gatsby-remark-copy-linked-files`,
                     `gatsby-remark-smartypants`,
@@ -76,7 +79,6 @@ module.exports = {
                 feeds: [{
                     serialize: ({ query: { site, allMarkdownRemark } }) =>
                         allMarkdownRemark.nodes.map((post) => {
-                            console.log(post)
                             const url = site.siteMetadata.siteUrl + post.fields.slug
                             const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">Keep reading</a>.</strong></div><br /> <br />`
 
@@ -91,7 +93,7 @@ module.exports = {
                         }),
                     query: `
               {
-                allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+                allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
                   nodes {
                     frontmatter {
                       title
@@ -107,7 +109,7 @@ module.exports = {
             `,
                     output: `rss.xml`,
                     title: "Dan In Progress - Improving as I go"
-                }, ],
+                },],
             },
         }
     ],

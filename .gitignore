@@ -69,3 +69,6 @@ public
 .DS_Store
 # Local Netlify folder
 .netlify
+
+# vendor folder to store linked packages
+vendor/

@@ -1,0 +1,15 @@
+cypress/platform/xss3.html
+coverage
+
+# for gatsby output
+.cache
+public
+
+# javascript related
+dist
+package-lock.json
+node_modules
+pnpm-lock.yaml
+
+# external projects
+vendor

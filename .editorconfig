@@ -1,0 +1,30 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+charset = utf-8
+insert_final_newline = true
+trim_trailing_spaces = true
+end_of_line = lf
+indent_style = space
+indent_size = 4
+max_line_length = 120
+
+[{Makefile,**.mk}]
+# Use tabs for indentation (Makefiles require tabs)
+indent_style = tab
+
+
+# trailing spaces in markdown indicate word wrap
+[*.md]
+trim_trailing_spaces = false
+
+# Ignore paths
+[/{vendor,node_modules,public,.cache}/**]
+generated_code = true
+charset = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_style = unset
+indent_size = unset

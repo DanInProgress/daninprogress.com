@@ -2,19 +2,32 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+// import Seo from "../components/seo-old"
+import { SEO } from "../components/seo"
 
 import { BaseMarkdownRemark } from "../graphql/remark"
 
 import { SiteMetadata } from "../graphql/site"
 import BlogPost from "../components/blog-post"
 
-type AdjacentPostSlugs = BaseMarkdownRemark &{
+export const Head = ({ data }: { data: BlogPostData }) => {
+  const post = data.markdownRemark
+
+
+  return (
+    <SEO
+      title={post.frontmatter.title}
+      description={post.frontmatter.description || post.excerpt}
+    />
+  )
+}
+
+type AdjacentPostSlugs = BaseMarkdownRemark & {
   frontmatter: {
     title: any
   }
   fields: {
-    slug : any
+    slug: any
   }
 }
 
@@ -31,18 +44,14 @@ type BlogPostData = {
   next: AdjacentPostSlugs
 }
 
-const BlogPostTemplate = ({ data, location }:{data: BlogPostData, location: URL}) => {
+const BlogPostTemplate = ({ data, location }: { data: BlogPostData, location: URL }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title || `Title`
   const { previous, next } = data
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
-      <BlogPost 
+      <BlogPost
         frontmatter={post.frontmatter}
         title={post.frontmatter.title}
         date={post.frontmatter.date}

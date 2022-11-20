@@ -1,12 +1,12 @@
     .callout {
-        background-color: var(--panel-background);
-        border-radius: .5rem;
         display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: fit-content(50%) auto;
         grid-template-areas: "icon text";
+        grid-template-columns: fit-content(50%) auto;
+        grid-template-rows: auto;
         margin: 1rem 1.5rem 2rem 1.5rem;
         padding: .25rem;
+        border-radius: .5rem;
+        background-color: var(--panel-background);
     }
     
     @media screen and (max-width: 6in) {
@@ -16,8 +16,8 @@
     }
     
     .callout>.icon {
-        font-size: 2.5rem;
         align-self: center;
+        font-size: 2.5rem;
         justify-self: center;
     }
     
@@ -27,8 +27,8 @@
     }
     
     .callout>.text {
-        border-left: var(--panel-background) 3px solid;
         align-self: center;
+        border-left: var(--panel-background) 3px solid;
         justify-self: start;
     }
     

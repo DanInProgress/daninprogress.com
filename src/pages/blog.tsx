@@ -6,8 +6,12 @@ import Layout from "../components/layout"
 
 
 
-import Seo from "../components/seo"
+import { SEO } from "../components/seo"
 import BlogPost from "../components/blog-post"
+
+export const Head = () => (
+  <SEO title="All posts" />
+)
 
 const BlogIndex = ({ data, location }:any) => {
   const siteTitle = data.site.siteMetadata.title || `Title`
@@ -16,7 +20,6 @@ const BlogIndex = ({ data, location }:any) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -29,7 +32,6 @@ const BlogIndex = ({ data, location }:any) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
       <h1>All Posts</h1>
       <ol className="post-list" >
         {posts.map((post:any) => {
@@ -62,7 +64,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
       nodes {
         excerpt
         fields {

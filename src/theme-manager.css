@@ -1,19 +1,19 @@
 .theme-manager {
-    cursor: pointer;
-    font-size: 1.5rem;
     padding: .5em;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .fa-sun::before {
-    display: inline;
     content: "\f185";
+    display: inline;
     font-family: FontAwesome;
     font-style: normal;
 }
 
 .fa-moon::before {
-    display: inline;
     content: "\f186";
+    display: inline;
     font-family: FontAwesome;
     font-style: normal;
 }

@@ -6,7 +6,7 @@ import "../article.css"
 import Callout from "./callout"
 
 type BlogPostProp = {
-    frontmatter: any
+    frontmatter?: any
     title: string
     slug?: string
     date?: string

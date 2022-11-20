@@ -3,6 +3,11 @@
 :root {
     /* light mode */
     --light-brand: rgb(35, 169, 225);
+    --light-brand-hsl: hsl(198, 76%, 51%);
+    --light-brand-h: 198;
+    --light-brand-s: 76;
+    --light-brand-l: 51;
+    --light-brand-a: 1;
     --light-compliment: rgb(225, 95, 35);
     --light-background: hsl(198, 29%, 98%);
     --light-basetext: hsl(198, 20%, 20%);
@@ -49,7 +54,7 @@
     --prism-dark-selection-background: #444444;
 }
 
- :root {
+:root {
     --prism-light-scheme: light;
     --prism-light-foreground: var(--light-panel-text);
     --prism-light-background: var(--light-panel-background);
@@ -85,7 +90,7 @@
 }
 
 @media screen and (prefers-color-scheme: dark) {
-     :root {
+    :root {
         --brand: var(--dark-brand);
         --compliment: var(--dark-compliment);
         --background: var(--dark-background);
@@ -145,7 +150,7 @@
 }
 
 @media screen and (prefers-color-scheme: dark) {
-     :root {
+    :root {
         --prism-background: var(--prism-dark-background);
         --prism-boolean: var(--prism-dark-boolean);
         --prism-builtin: var(--prism-dark-builtin);

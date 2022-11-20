@@ -84,22 +84,22 @@ SOFTWARE.
 div[class*='language-'],
 pre[class*='language-'],
 code[class*='language-'] {
-    font-size: var(--prism-font-size);
+    color: var(--prism-foreground) !important;
     font-family: var(--prism-font-family);
-    direction: ltr;
+    font-size: var(--prism-font-size);
+    line-height: var(--prism-line-height);
     text-align: left;
+    word-break: normal;
     white-space: pre;
     word-spacing: normal;
-    word-break: normal;
-    line-height: var(--prism-line-height);
-    -moz-tab-size: var(--prism-tab-size);
-    -o-tab-size: var(--prism-tab-size);
-    tab-size: var(--prism-tab-size);
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
-    color: var(--prism-foreground) !important;
+    -moz-tab-size: var(--prism-tab-size);
+    -o-tab-size: var(--prism-tab-size);
+    tab-size: var(--prism-tab-size);
+    direction: ltr;
 }
 
 
@@ -107,22 +107,22 @@ code[class*='language-'] {
 
 div[class*='language-'],
 pre[class*='language-'] {
-    font-size: var(--prism-block-font-size);
-    padding: var(--prism-block-padding-y) var(--prism-block-padding-x);
     margin: var(--prism-block-margin-y) var(--prism-block-margin-x);
-    border-radius: var(--prism-block-radius);
+    padding: var(--prism-block-padding-y) var(--prism-block-padding-x);
     overflow: auto;
+    border-radius: var(--prism-block-radius);
     background: var(--prism-background);
+    font-size: var(--prism-block-font-size);
 }
 
 
 /* Inline code */
 
  :not(pre)>code[class*='language-'] {
-    font-size: var(--prism-inline-font-size);
     padding: var(--prism-inline-padding-y) var(--prism-inline-padding-x);
     border-radius: var(--prism-inline-radius);
     background: var(--prism-inline-background);
+    font-size: var(--prism-inline-font-size);
 }
 
 

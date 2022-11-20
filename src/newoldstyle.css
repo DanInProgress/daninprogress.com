@@ -1,14 +1,14 @@
 :root {
     font-family: Archivo, sans-serif;
     font-size: 14pt;
-    line-height: 1.35;
     font-weight: 100;
+    line-height: 1.35;
 }
 
 a {
+    color: var(--basetext);
     text-decoration: none;
-    cursor: pointer;
-    color: var(--basetext)
+    cursor: pointer
 }
 
 blockquote {
@@ -16,14 +16,14 @@ blockquote {
 }
 
 pre {
-    overflow-x: scroll;
     max-width: 100vw;
+    overflow-x: scroll;
 }
 
 a:hover {
+    color: var(--basetext);
     text-decoration: none;
-    text-decoration: underline;
-    color: var(--basetext)
+    text-decoration: underline
 }
 
 [role=button] {
@@ -46,8 +46,8 @@ h3,
 h4,
 h5,
 h6 {
-    line-height: 1.3;
     font-weight: 400;
+    line-height: 1.3;
 }
 
 h1 {
@@ -55,66 +55,66 @@ h1 {
 }
 
 h2 {
-    font-size: 1.6rem;
     margin-top: 2rem;
+    font-size: 1.6rem;
 }
 
 h3 {
-    font-style: italic;
-    font-size: 1.125rem;
     margin-top: 1.5rem;
     margin-bottom: .25rem;
     margin-left: .5rem;
+    font-size: 1.125rem;
+    font-style: italic;
 }
 
 p {
-    padding: 0;
     margin: 0;
     margin-top: .5rem;
     margin-left: .5rem;
+    padding: 0;
 }
 
 pre {
     padding: 16px;
     overflow: auto;
+    border-radius: 6px;
+    background-color: var(--panel-background);
     font-size: 85%;
     line-height: 1.45;
-    background-color: var(--panel-background);
-    border-radius: 6px;
 }
 
 header {
-    position: relative;
-    height: 31.750mm;
     /* height: 47.388mm; */
     display: flex;
+    position: relative;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: start;
     align-items: end;
+    justify-content: start;
     max-width: 48.75rem;
+    height: 31.750mm;
     /* border-bottom: 1px solid #e6e6e6; */
 }
 
 .site-title {
-    white-space: nowrap;
-    align-self: start;
-    justify-self: start;
-    margin: 0;
-    margin-top: 13mm;
-    margin-left: 13mm;
-    /* don't flex site title */
-    flex: 0;
     position: relative;
     top: 0;
     left: 0;
+    /* don't flex site title */
+    flex: 0;
+    align-self: start;
+    margin: 0;
+    margin-top: 13mm;
+    margin-left: 13mm;
+    white-space: nowrap;
+    justify-self: start;
 }
 
 .site-title a {
-    font-family: FonoCompressed;
-    font-variant: small-caps;
-    font-size: 15mm;
     color: var(--basetext);
+    font-family: FonoCompressed;
+    font-size: 15mm;
+    font-variant: small-caps;
     text-decoration: none;
 }
 
@@ -186,10 +186,10 @@ header> :last-child {
 } */
 
 .bio {
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
     margin-top: 3em;
     margin-bottom: 1em;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
 }
 
 
@@ -222,8 +222,8 @@ body {
 }
 
 #layout-wrapper>main {
-    grid-area: main;
     display: grid;
+    grid-area: main;
     grid-template-rows: fit-content(3em) 1fr;
     padding: 0 2em;
 }
@@ -236,20 +236,20 @@ body {
 }
 
 .post-list article {
-    min-height: 1in;
-    width: 100%;
     display: grid;
+    grid-template-areas: "title . pub-date" "excerpt excerpt excerpt" "read-more . .";
     grid-template-columns: 1fr 3em fit-content(10em);
     grid-template-rows: auto auto auto;
-    grid-template-areas: "title . pub-date" "excerpt excerpt excerpt" "read-more . .";
-    padding-bottom: 3rem;
+    width: 100%;
+    min-height: 1in;
     padding-top: 3rem;
+    padding-bottom: 3rem;
     border-top: 1px solid #e6e6e6;
 }
 
 .post-list article>h2 {
-    margin: 0;
     grid-area: title;
+    margin: 0;
     font-size: 1.17em;
 }
 
@@ -265,18 +265,18 @@ article>h1:first-child>a {
 }
 
 .post-list article>.publication-date {
-    grid-area: pub-date;
-    font-size: .8em;
-    white-space: nowrap;
-    font-family: Archivo, sans-serif;
-    font-style: italic;
-    color: var(--basetext);
-    margin: 0;
-    justify-self: end;
-    align-self: start;
     display: block;
+    grid-area: pub-date;
+    align-self: start;
+    margin: 0;
+    color: var(--basetext);
+    font-family: Archivo, sans-serif;
+    font-size: .8em;
     font-size: 1rem;
+    font-style: italic;
     line-height: 1.6;
+    white-space: nowrap;
+    justify-self: end;
 }
 
 .post-list article>p {
@@ -285,27 +285,27 @@ article>h1:first-child>a {
 }
 
 .post-list article>a.read-more {
-    margin-top: 1rem;
     grid-area: read-more;
+    margin-top: 1rem;
     color: var(--basetext);
 }
 
 main>h1:first-child,
 article>h1:first-child {
-    border-bottom: 1px solid var(--basetext);
     padding: 0;
+    border-bottom: 1px solid var(--basetext);
 }
 
 ol.post-list {
     display: flex;
-    padding-bottom: 4rem;
     flex-direction: column;
-    padding-left: 1rem;
-    padding-right: 1rem;
     min-width: 0;
     max-width: 48.75rem;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-bottom: 4rem;
+    padding-left: 1rem;
 }
 
 .post-list>li:first-child>article {

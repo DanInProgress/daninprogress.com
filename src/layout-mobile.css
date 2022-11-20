@@ -10,8 +10,8 @@
         margin-left: revert;
     }
     #layout-wrapper>header {
-        margin-bottom: 1em;
         height: fit-content;
+        margin-bottom: 1em;
     }
     #layout-wrapper>header,
     #layout-wrapper>footer {
@@ -23,7 +23,7 @@
         flex-basis: 100%;
     }
     #layout-wrapper {
-        grid-template-columns: 1rem fit-content(var(--layout-max-width)) 1rem;
         grid-template-areas: "header header header" ". main ." "footer footer footer";
+        grid-template-columns: 1rem fit-content(var(--layout-max-width)) 1rem;
     }
 }

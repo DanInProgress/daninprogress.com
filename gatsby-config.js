@@ -43,12 +43,8 @@ module.exports = {
                 {
                     resolve: `gatsby-remark-mermaid`,
                     options: {
+                        themeCSSFile: "./src/mermaid-css/mermaid-override.css",
                         mermaidOptions: {
-                            theme: "hsla",
-                            themeVariables: {
-                                primaryColor: "hsla(var(--light-brand-h),var(--light-brand-s),var(--light-brand-l),var(--light-brand-a))",
-                                // "primaryColor": "hsla(179deg,49.2%,36.3%,1)",
-                            },
                         }
                     }
                 },

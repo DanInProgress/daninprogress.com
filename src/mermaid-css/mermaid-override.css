@@ -1,0 +1,151 @@
+&svg {
+--error-color: #552222
+}
+
+
+
+&svg {
+    display: block;
+    margin: var(--prism-block-margin-y) auto;
+    padding: var(--prism-block-padding-y) var(--prism-block-padding-x);
+    overflow: auto;
+    border-radius: var(--prism-block-radius);
+    background: var(--prism-background);
+    font-family: "trebuchet ms", verdana, arial, sans-serif;
+    font-size: 16px;
+}
+.error-icon {
+    fill: var(--error-color);
+}
+.error-text {
+    stroke: var(--error-color);
+    fill: var(--error-color);
+}
+.edge-thickness-normal {
+    stroke-width: 2px;
+}
+.edge-thickness-thick {
+    stroke-width: 3.5px;
+}
+.edge-pattern-solid {
+    stroke-dasharray: 0;
+}
+.edge-pattern-dashed {
+    stroke-dasharray: 3;
+}
+.edge-pattern-dotted {
+    stroke-dasharray: 2;
+}
+.marker {
+    stroke: #333333;
+    fill: #333333;
+}
+.marker.cross {
+    stroke: #333333;
+}
+svg {
+    font-family: "trebuchet ms", verdana, arial, sans-serif;
+    font-size: 16px;
+}
+.actor {
+    stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+    fill: var(--prism-string);
+}
+text.actor > tspan {
+    stroke: none;
+    fill: var(--prism-foreground);
+}
+.actor-line {
+    stroke: grey;
+}
+.messageLine0 {
+    stroke-width: 1.5;
+    stroke-dasharray: none;
+    stroke: var(--prism-foreground);
+}
+.messageLine1 {
+    stroke-width: 1.5;
+    stroke-dasharray: 2, 2;
+    stroke: var(--prism-foreground);
+}
+#arrowhead path {
+    stroke: var(--prism-foreground);
+    fill: var(--prism-foreground);
+}
+.sequenceNumber {
+    fill: white;
+}
+#sequencenumber {
+    fill: var(--prism-foreground);
+}
+#crosshead path {
+    stroke: var(--prism-foreground);
+    fill: var(--prism-foreground);
+}
+.messageText {
+    stroke: none;
+    fill: var(--prism-foreground);
+}
+.labelBox {
+    stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+    fill: var(--prism-selection-background);
+}
+.labelText,
+.labelText > tspan {
+    stroke: none;
+    fill: var(--prism-variable);
+}
+.loopText,
+.loopText > tspan {
+    stroke: none;
+    fill: var(--prism-function);
+}
+.loopLine {
+    stroke-width: 2px;
+    stroke-dasharray: 2, 2;
+    stroke: var(--prism-comment);
+    fill: var(--prism-comment);
+}
+.note {
+    stroke: var(--prism-selection-background);
+    fill: var(--prism-background);
+}
+.noteText,
+.noteText > tspan {
+    stroke: none;
+    fill: var(--prism-function);
+}
+.activation0 {
+    stroke: #666;
+    fill: var(--prism-selection-background);
+}
+.activation1 {
+    stroke: #666;
+    fill: var(--prism-selection-background);
+}
+.activation2 {
+    stroke: #666;
+    fill: var(--prism-selection-background);
+}
+.actorPopupMenu {
+    position: absolute;
+}
+.actorPopupMenuPanel {
+    position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    fill: #ececff;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+.actor-man line {
+    stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+    fill: #ececff;
+}
+.actor-man circle,
+line {
+    stroke-width: 2px;
+    stroke: hsl(259.6261682243, 59.7765363128%, 87.9019607843%);
+    fill: #ececff;
+}
+:root {
+    --mermaid-font-family: "trebuchet ms", verdana, arial, sans-serif;
+}
